@@ -2,6 +2,9 @@ const categoriesEl = document.getElementById('categories');
 const searchEl = document.getElementById('search');
 const countEl = document.getElementById('count');
 const sectionNavEl = document.getElementById('sectionNav');
+const mobileFloatEl = document.getElementById('mobileFloat');
+const mobileSectionJumpEl = document.getElementById('mobileSectionJump');
+const mobileSearchEl = document.getElementById('mobileSearch');
 
 let allData = [];
 
@@ -56,6 +59,7 @@ function formatCategoryTitle(title) {
 function render(data) {
   categoriesEl.innerHTML = '';
   sectionNavEl.innerHTML = '';
+  mobileSectionJumpEl.innerHTML = '<option value="">跳转分类</option>';
   let total = 0;
 
   for (const category of data) {
@@ -73,6 +77,11 @@ function render(data) {
     navLink.href = `#${section.id}`;
     navLink.textContent = titleText;
     sectionNavEl.appendChild(navLink);
+
+    const mobileOption = document.createElement('option');
+    mobileOption.value = section.id;
+    mobileOption.textContent = titleText;
+    mobileSectionJumpEl.appendChild(mobileOption);
 
     const grid = document.createElement('div');
     grid.className = 'grid';
@@ -174,5 +183,33 @@ loadResources()
   });
 
 searchEl.addEventListener('input', () => {
-  render(filterData(searchEl.value.trim()));
+  const q = searchEl.value.trim();
+  if (mobileSearchEl.value !== q) mobileSearchEl.value = q;
+  render(filterData(q));
 });
+
+mobileSearchEl.addEventListener('input', () => {
+  const q = mobileSearchEl.value.trim();
+  if (searchEl.value !== q) searchEl.value = q;
+  render(filterData(q));
+});
+
+mobileSectionJumpEl.addEventListener('change', () => {
+  const id = mobileSectionJumpEl.value;
+  if (!id) return;
+  const target = document.getElementById(id);
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+function updateMobileFloat() {
+  if (window.innerWidth > 760) {
+    mobileFloatEl.classList.remove('show');
+    return;
+  }
+  if (window.scrollY > 280) mobileFloatEl.classList.add('show');
+  else mobileFloatEl.classList.remove('show');
+}
+
+window.addEventListener('scroll', updateMobileFloat, { passive: true });
+window.addEventListener('resize', updateMobileFloat);
+updateMobileFloat();
