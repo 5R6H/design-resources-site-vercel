@@ -4,6 +4,7 @@ body {
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background: #e8ebef;
   color: #1d2736;
+  overflow-x: hidden;
 }
 
 .layout {
@@ -131,6 +132,14 @@ main { min-width: 0; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
+@media (max-width: 760px) {
+  .sectionNav a {
+    font-size: 18px;
+    line-height: 1.2;
+    white-space: normal;
+  }
+}
+
 @media (max-width: 420px) {
   .grid { grid-template-columns: 1fr; }
 }
@@ -138,13 +147,14 @@ main { min-width: 0; }
 @media (max-width: 760px) {
   .layout {
     display: block;
+    padding: 16px;
   }
   .sidebar {
     position: static;
     left: auto;
     top: auto;
     width: auto;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     height: auto;
     min-height: auto;
     padding-bottom: 0;
@@ -154,6 +164,7 @@ main { min-width: 0; }
   }
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 10px;
   }
 }
 
