@@ -59,7 +59,7 @@ function formatCategoryTitle(title) {
 function render(data) {
   categoriesEl.innerHTML = '';
   sectionNavEl.innerHTML = '';
-  mobileSectionJumpEl.innerHTML = '<option value="">跳转分类</option>';
+  mobileSectionJumpEl.innerHTML = '';
   let total = 0;
 
   for (const category of data) {
@@ -114,6 +114,10 @@ function render(data) {
   }
 
   countEl.textContent = `${total} 个资源`;
+  if (mobileSectionJumpEl.options.length && !mobileSectionJumpEl.value) {
+    mobileSectionJumpEl.value = mobileSectionJumpEl.options[0].value;
+  }
+  syncCurrentSectionInFloat();
 }
 
 function filterData(keyword) {
@@ -201,6 +205,18 @@ mobileSectionJumpEl.addEventListener('change', () => {
   if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
+function syncCurrentSectionInFloat() {
+  if (window.innerWidth > 760) return;
+  const sections = [...document.querySelectorAll('.category')];
+  if (!sections.length) return;
+  let current = sections[0];
+  for (const section of sections) {
+    if (section.getBoundingClientRect().top <= 180) current = section;
+    else break;
+  }
+  if (mobileSectionJumpEl.value !== current.id) mobileSectionJumpEl.value = current.id;
+}
+
 function updateMobileFloat() {
   if (window.innerWidth > 760) {
     mobileFloatEl.classList.remove('show');
@@ -208,6 +224,7 @@ function updateMobileFloat() {
   }
   if (window.scrollY > 280) mobileFloatEl.classList.add('show');
   else mobileFloatEl.classList.remove('show');
+  syncCurrentSectionInFloat();
 }
 
 window.addEventListener('scroll', updateMobileFloat, { passive: true });

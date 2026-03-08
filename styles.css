@@ -174,7 +174,7 @@ main { min-width: 0; }
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 360px) {
   .grid { grid-template-columns: 1fr; }
 }
 
@@ -260,7 +260,7 @@ main { min-width: 0; }
     position: fixed;
     left: 16px;
     right: 16px;
-    bottom: 16px;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
@@ -288,11 +288,15 @@ main { min-width: 0; }
     border-radius: 8px;
     padding: 8px 10px;
     background: #ffffff;
-    font-size: 14px;
+    font-size: 16px;
+  }
+
+  input[type='search'] {
+    font-size: 16px;
   }
 
   body {
-    padding-bottom: 92px;
+    padding-bottom: calc(120px + env(safe-area-inset-bottom, 0px));
   }
 }
 
