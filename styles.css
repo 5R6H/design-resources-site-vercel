@@ -131,7 +131,7 @@ main { min-width: 0; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 420px) {
   .grid { grid-template-columns: 1fr; }
 }
 
@@ -154,15 +154,6 @@ main { min-width: 0; }
   }
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .meta {
-    opacity: 1;
-  }
-}
-
-@media (max-width: 480px) {
-  .grid {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -231,6 +222,12 @@ main { min-width: 0; }
 .card:has(.cardHead a:hover) .meta,
 .card:focus-within .meta {
   opacity: 1;
+}
+
+@media (hover: none) {
+  .meta {
+    opacity: 1;
+  }
 }
 
 footer { color: #6e7f99; padding-bottom: 20px; }
