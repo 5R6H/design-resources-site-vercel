@@ -397,6 +397,21 @@
         "city": "首尔"
       },
       {
+        "name": "BLOND",
+        "url": "https://www.blond.cc/",
+        "tags": [
+          "studio",
+          "industrial design",
+          "product design",
+          "工业设计",
+          "产品设计"
+        ],
+        "image": null,
+        "region": "欧洲",
+        "country": "英国",
+        "city": "伦敦"
+      },
+      {
         "name": "Collins",
         "url": "https://www.wearecollins.com/",
         "tags": [
