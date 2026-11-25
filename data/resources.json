@@ -412,6 +412,21 @@
         "city": "伦敦"
       },
       {
+        "name": "Emeis Deubel",
+        "url": "https://www.emeisdeubel.com/",
+        "tags": [
+          "photography",
+          "photography agency",
+          "摄影",
+          "摄影师",
+          "摄影经纪"
+        ],
+        "image": null,
+        "region": "欧洲",
+        "country": "德国",
+        "city": "柏林"
+      },
+      {
         "name": "Collins",
         "url": "https://www.wearecollins.com/",
         "tags": [
