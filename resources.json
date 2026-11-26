@@ -802,6 +802,20 @@
           "Studio Airport"
         ],
         "image": null
+      },
+      {
+        "name": "Steven John Miner",
+        "url": "https://www.stevenjohnminer.com/",
+        "tags": [
+          "摄影",
+          "摄影师",
+          "photography",
+          "@stevenjohnminer"
+        ],
+        "image": null,
+        "region": "北美",
+        "country": "美国",
+        "city": "纽约"
       }
     ]
   },
