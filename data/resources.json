@@ -711,6 +711,21 @@
         "region": "中国",
         "country": "中国",
         "city": "杭州"
+      },
+      {
+        "name": "OPENINGHOURS Studio",
+        "url": "https://openinghours.studio/",
+        "tags": [
+          "studio",
+          "品牌设计",
+          "数字产品",
+          "网页设计",
+          "creative technology"
+        ],
+        "image": null,
+        "region": "欧洲",
+        "country": "挪威",
+        "city": "奥斯陆"
       }
     ]
   },
